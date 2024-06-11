@@ -1,0 +1,116 @@
+
+/* dentro do radial gradiente podemos usar as variáveis que criamos 
+var(--var_dentroDoRoot) para chamar as cores designadas p/ formar um
+belo gradiente */
+.banner {
+    background: radial-gradient(var(--cor-padrao-hover), var(--cor-padrao));
+}
+
+.banner .linha {
+    /*Alteração da margin do BANNER da MARGIN da DIV linha*/
+    margin-top: 50px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Não precisa do '.' pois o NAV não é um estilo e sim uma TAG*/
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+/*Tirando as '*' bolinha que ficam *Inicio */
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/*Tirando decoração do link <a*/
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-fonte);
+}
+
+
+.banner p {
+    color: var(--cor-fonte);
+}
+
+p {
+    color: var(--cor-fonte-paragrafo);
+}
+
+/*display:flex. é sempre pra tornar responsivo */
+.linha {
+    display: flex;
+    align-items: center;
+    /*Serve para que os itens quebrem uma linha*/
+    flex-wrap: wrap;
+    /*Alinha os elementos, nesse caso a div .linha que tem os textos, 
+    no eixo principal - sendo distribuidos igualmente nos spaces
+    disponiveis ao seu redor */
+    justify-content: space-around;
+}
+
+.col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+/* IMAGEM*/
+.col-2 img {
+    max-width: 100%;
+    /*50 pixeis por 0 pixeis */
+    padding: 50px 0;
+}
+
+/*H1 da coluna*/
+.col-2 h1 {
+    font-size: 50px;
+    /*espaçamento entre as linhas*/
+    line-height: 60px;
+    margin: 20px 0;
+}
+
+.col-2 p {
+    font-weight: 400;
+    color: var(--cor-fonte);
+}
+
+/*Mais informações botão*/
+.btn {
+    text-decoration: none;
+    color: var(--cor-fonte);
+    /*fundo do botão pra formar*/
+    background: var(--cor-btn);
+    /*deslocamento*/
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    /*Adicionando transição suave ao mudar de cor - HOVER*/
+    transition: background 0.5s;
+}
+
+/*Ao MOUSE passar encima - HOVER*/
+.btn:hover {
+    /*Ao passar encima o background do botão fica verde(var.cor) 
+    e a cor da fonte do texto passa a ser preta*/
+    background: var(--cor-btn-fonte);
+    color: var(--cor-fonte);
+}

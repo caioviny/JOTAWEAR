@@ -1,0 +1,810 @@
+/* importação de fonte do Google no próprio CSS ao inves da tag no index */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Primeira parte - limpeza do código
+Usando '*{}' todos os elementos serão afetados, pois este comando é um
+seletor universal, aplicando todos os 'estilos'.
+
+*/
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+/* 
+Um :root define variáveis globais no CSS, em seu elemento raiz,
+que podem ser usadas em todo documento HTML. 
+
+Definindo cores por VAR's*/
+
+/* hover: Ao passar o mouse encima apresenta a cor */
+:root {
+    --cor-padrao: #a19f7c;
+    --cor-padrao-hover: rgb(136, 96, 96);
+    --cor-fonte: #fff;
+    --cor-fonte-paragrafo: #555;
+    --cor-btn: #4e3b3b;
+    --cor-btn-hover: #15ff00;
+    --cor-btn-fonte: #000;
+    --cor-fonte-corpo: #555;
+    --cor-fonte-corpo-leve: #777;
+}
+
+/* Definindo a fonte principal dos textos presentes no body */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* dentro do radial gradiente podemos usar as variáveis que criamos 
+var(--var_dentroDoRoot) para chamar as cores designadas p/ formar um
+belo gradiente */
+.banner {
+    background: radial-gradient(var(--cor-padrao-hover), var(--cor-padrao));
+}
+
+.banner .linha {
+    /*Alteração da margin do BANNER da MARGIN da DIV linha*/
+    margin-top: 50px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Não precisa do '.' pois o NAV não é um estilo e sim uma TAG*/
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+/*Tirando as '*' bolinha que ficam *Inicio */
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/*Tirando decoração do link <a*/
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-fonte);
+}
+
+
+.banner p {
+    color: var(--cor-fonte);
+}
+
+p {
+    color: var(--cor-fonte-paragrafo);
+}
+
+/*display:flex. é sempre pra tornar responsivo */
+.linha {
+    display: flex;
+    align-items: center;
+    /*Serve para que os itens quebrem uma linha*/
+    flex-wrap: wrap;
+    /*Alinha os elementos, nesse caso a div .linha que tem os textos, 
+    no eixo principal - sendo distribuidos igualmente nos spaces
+    disponiveis ao seu redor */
+    justify-content: space-around;
+}
+
+.col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+/* IMAGEM*/
+.col-2 img {
+    max-width: 100%;
+    /*50 pixeis por 0 pixeis */
+    padding: 50px 0;
+}
+
+/*H1 da coluna*/
+.col-2 h1 {
+    font-size: 50px;
+    /*espaçamento entre as linhas*/
+    line-height: 60px;
+    margin: 20px 0;
+}
+
+.col-2 p {
+    font-weight: 400;
+    color: var(--cor-fonte);
+}
+
+/*Mais informações botão*/
+.btn {
+    text-decoration: none;
+    color: var(--cor-fonte);
+    /*fundo do botão pra formar*/
+    background: var(--cor-btn);
+    /*deslocamento*/
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    /*Adicionando transição suave ao mudar de cor - HOVER*/
+    transition: background 0.5s;
+}
+
+/*Ao MOUSE passar encima - HOVER*/
+.btn:hover {
+    /*Ao passar encima o background do botão fica verde(var.cor) 
+    e a cor da fonte do texto passa a ser preta*/
+    background: var(--cor-btn-fonte);
+    color: var(--cor-fonte);
+}
+
+/*Descolando as imagens da col-2/container*/
+.categorias {
+    margin: 70px 0;
+}
+
+/*alinahando o tamanho da ocupação da img*/
+.corpo-categorias {
+    max-width: 1000px;
+    /*permite que a largura e a margin fiquem pre-definida */
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.col-3 {
+    /*serve literalmente p/ esticar o elemento lateralmente*/
+    flex-basis: 30%;
+    min-width: 250px;
+    /*define a margin area na parte inferior de um elemento.*/
+    margin-bottom: 30px;
+}
+
+/*Formatando todas as IMG*/
+/*Alterando o tamanho delas*/
+.col-3 img {
+    width: 100%;
+    /*Recortando a IMG*/
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.col-3 img:hover{
+    transform: scale(1.1);
+}
+
+.p-posters {
+    color: black;
+    font-weight: 500;
+    font-family: monospace;
+
+}
+
+/*----------------- PRODUTOS EM DESTAQUE -----------------*/
+/*H3 das criticas*/
+.feedback-pergunta {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--cor-padrao);
+    font-weight: 400;
+}
+
+/*COLUNA PRODUTOS*/
+.col-4 {
+    flex-basis: 25%;
+    min-width: 200px;
+    padding: 10px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
+/*Ao passar o MOUSE encima da IMG - ficar 'maior' o produto*/
+.col-4:hover {
+    transform: scale(1.1);
+}
+
+.col-4 img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.titulo {
+    position: relative;
+    /*Tamanho da linha/texto*/
+    line-height: 60px;
+    margin: 0 auto 80px;
+    /*alinhar ao centro*/
+    text-align: center;
+    color: var(--cor-fonte-corpo);
+}
+
+/*Linha abaixo de Produtos em Destaque*/
+.titulo::after {
+    content: '';
+    background-color: var(--cor-padrao);
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*Mexendo nas fontes H4 da coluna-produtos*/
+h4 {
+    color: var(--cor-fonte-corpo);
+    font-weight: normal;
+}
+
+.col-4 p {
+    font-size: 14px;
+    color: var(--cor-btn-fonte);
+
+}
+
+/*Mudança da cor das estrelinhas do rating*/
+.col-4 rating {
+    color: var(--cor-padrao);
+}
+
+/*----------------- OFERTAS -----------------*/
+/*---------------------OUTRA PARTE DA LOJA----------------*/
+.ofertas {
+    background: radial-gradient(#7B68EE, #8A2BE2);
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.col-2 oferta-img {
+    padding: 50px;
+}
+
+.col-2 h2 {
+    color: var(--cor-fonte);
+
+}
+
+/*----------------- DEPOIMENTOS -----------------*/
+.feedback {
+    padding-top: 100px;
+}
+
+/*COLUNA COM TODO CORPO DO FEEDBACK*/
+.feedback .col-3 {
+    text-align: center;
+    padding: 40px 20px;
+    /*sombra que cria um 'quadrado'
+    t(topo) d(direita) b(button-parte de baixo) l(left-esquerda)*/
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    /*SETA 'clica'*/
+    cursor: pointer;
+    /*animação - transição*/
+    transition: transform 0.5s;
+}
+
+/*ANIMAÇÃO AO PASSAR O MOUSE ENCIMA DO FEEDBACK*/
+.feedback .col-3:hover {
+    transform: scale(1.1);
+}
+
+/*IMAGEM USER's FEEDBACK*/
+.feedback .col-3 img {
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 2px solid var(--cor-padrao);
+}
+
+/*Icone ribbon*/
+.feedback-icone {
+    color: rgb(143, 143, 0);
+    font-size: 34px;
+}
+
+.col-2 oferta-img {
+    padding: 50px;
+
+}
+
+small {
+    color: var(--cor-fonte);
+
+}
+
+.feedback {
+    padding-top: 100px;
+}
+
+
+.feedback .col-3 {
+    text-align: center;
+    padding: 40px 20px;
+    /*sombra que cria um 'quadrado'
+t(topo) d(direita) b(button-parte de baixo) l(left-esquerda)*/
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.5s;
+    background-color: aliceblue;
+}
+
+.feedback .col-3:hover {
+    transform: scale(1.1);
+    background-color: bisque;
+}
+
+.feedback-icone {
+    color: rgb(182, 182, 0);
+    font-size: 34px;
+}
+
+/*IMAGEM DO USER*/
+.feedback .col-3 img {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 2px solid var(--cor-padrao);
+    filter: grayscale(100);
+}
+
+/*TRANSIÇÃO PRETO BRANCO P COLORIDO*/
+.feedback .col-3 img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+
+.col-3 p {
+    /*tamanho do 'feedback'(texto/p) do user */
+    font-size: 13px;
+    color: var(--cor-btn-fonte);
+    margin: 12px 0;
+
+}
+
+/*NOME DO USER - FEEDBACK*/
+.feedback .col-3 h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-btn-fonte);
+}
+
+/*----------------ENVIO DE MSG------------------*/
+.enviar_msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajuste conforme necessário */
+}
+
+.enviar_msg h1, .enviar_msg h4, .inscreva {
+    text-align: center;
+}
+
+.enviar_msg h4{
+    margin-top: 24px;
+    margin-bottom: 30px;
+}
+
+.inscreva {
+    margin-top: 40px; /* Espaço entre o texto e o formulário */
+}
+
+.inscreva h1 {
+    margin-bottom: 20px; /* Espaço entre o título e o input de email */
+}
+
+.inscreva input {
+    width: 300px; /* Ajuste conforme necessário */
+    padding: 8px; /* Ajuste conforme necessário */
+    margin-right: 5px; /* Espaço entre o input de email e o botão de envio */
+    border-radius: 10px;
+    
+}
+
+.inscreva button{
+    height: 36px;
+    width: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: bisque;
+    border: 1px solid bisque;
+    color: black;
+    margin-bottom: 100px;
+}
+
+.inscreva button:hover{
+    background-color: black;
+    transition: 1s;
+    color: white;
+}
+/*----------CARRINHO DE COMPRAS---------------      */
+.carrinho-compras{
+    margin: 80px auto;
+}
+
+.carrinho-compras {
+    margin: 80px auto;
+}
+
+table{
+    width: 1500px;
+    /*espalha/espaça*/
+    border-collapse: collapse;
+    display: flex;
+}
+
+.carrinho_info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+th{
+    background-color: bisque;
+    color: black;
+    text-align: left;
+    font-weight: normal;
+    padding: 5px;
+}
+
+td{
+    padding: 10px 5px;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+td a{
+    color: red;
+    font-size: 12px;
+}
+
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+/*      RODAPÉ DO SITE       */
+.rodape {
+    background-color: var(--cor-btn-fonte);
+    color: white;
+    padding: 60px 0 20px;
+    font-size: 14px;
+}
+
+.rodape p {
+    color: white;
+}
+
+.rodape h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.rodape-col-1,
+.rodape-col-2,
+.rodape-col-3,
+.rodape-col-4 {
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.rodape-col-1 {
+    flex-basis: 30%;
+    margin-right: 100px;
+}
+
+
+.rodape-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+.rodape-col-2 img {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.rodape-col-3,
+.rodape-col-4 {
+    flex-basis: 17%;
+    text-align: right;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*Link da Central da Jwear*/
+.rodape-col-3 li a {
+    text-decoration: none;
+    color: white;
+}
+
+/*Link das Linkagens (Social Medias)*/
+.rodape-col-4 li a {
+    text-decoration: none;
+    color: white;
+}
+
+.app-logo {
+    margin-top: 25px;
+}
+
+/*Icones da PlayStore e Apple*/
+.app-logo img {
+    width: 140px;
+}
+
+.rodape hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
+    margin-left: 20px;
+}
+
+.direitos {
+    text-align: center;
+}
+
+/*FORMATAÇÃO DO 'MENU-CELULAR'*/
+
+.menu-celular {
+    width: 28px;
+    margin-left: 20px;
+    display: none;
+}
+
+/*------------------- PAGINA PRODUTOS  --------------*/
+.novoMenu nav ul li a {
+    color: var(--cor-btn-fonte);
+}
+
+/*'Tracinho' de separação*/
+.novoMenu{
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.linha-2{
+    margin: 100px auto 50px;
+    justify-content: space-between;
+}
+
+.linha-2 select{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+/*tira a linha envolta*/
+.linha-2 select:focus{
+    outline: none;
+ }
+
+ .paginacao{
+    margin: 0 auto 80px;
+}
+
+.paginacao span{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    /*criar uma borda/quadrado*/
+    border: 1px solid wheat;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.paginacao span:hover{
+    transform: scale(1.1);
+    background-color: bisque;
+    color: white;
+    border: 1px solid wheat;
+}
+/*------------------- PÁGINA VER_PRODUTOS.HTML FORMATAÇÃO --------------*/
+
+.ver-produto{
+    margin-top: 40px;
+}
+
+.ver-produto .col-2 img{
+    width: 100%;
+}
+
+/*ID da img - produtoImg [Por ser Id chama-se por '#' ao invez de '.']*/
+.ver-produto #produtoImg{
+    width: 6000px;
+    /*Fica amassado*/
+    height: 450px;
+    /*Ajusta o OBJTO ao CORPO*/
+    object-fit: cover;
+}
+
+.ver-produto .col-2{
+    padding: 20px;
+}
+
+.ver-produto h4{
+    margin: 10px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.ver-produto select{
+    display: block;
+    padding: 10px;
+    margin-top: 20px;
+    border: 3px solid bisque;
+    border-radius: 7px;
+}
+/*Linha fica ao selecionar na select - resolução:*/
+.ver-produto select:focus{
+    outline: none;
+}
+
+.ver-produto input{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    padding-left: 10px;
+    border: 3px solid bisque;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+.ver-produto input:focus{
+    outline: none;
+}
+
+.ver-produto .btn{
+    border: none;
+    height: 46px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ver-produto .btn:hover{
+    background-color: bisque;
+    color: black;
+}
+
+.ver-produto p {
+    font-size: 15px;
+}
+
+/*--------------- Minaturas fotos abaixo --------------*/
+.img-linha{
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+/*------------------- MENU CELULAR MODO TABLET --------------*/
+
+@media only screen and (max-width:800px) {
+    nav ul {
+        margin-top: 48px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: var(--cor-btn-fonte);
+        width: 100%;
+        overflow: hidden;
+        /*Transição da função menuCelular (Caixa expansiva)*/
+        transition: max-height 0.5s;
+    }
+
+    /*Ao abrir o MENU (ao aguardo da função menucelular())*/
+    nav ul li {
+        display: block;
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        color: white;
+    }
+
+    /*Pro menu do celular aparecer*/
+    .menu-celular {
+        display: block;
+        cursor: pointer;
+    }
+
+    .novoMenu nav ul li a {
+        color: white;
+    }
+
+    @media only screen and (max-width:600px) {
+
+        .linha {
+            text-align: center;
+        }
+
+        .col-2,
+        .col-3,
+        .col-4 {
+            flex-basis: 100%;
+        }
+
+        .novoMenu nav ul li a {
+            color: white;
+        }
+
+    }
+}
+
+.col-2 h2 {
+    color: var(--cor-fonte);
+}
+
+.col-3 img {
+    width: 100%;
+    /*Recortando a IMG*/
+    object-fit: cover;
+    object-position: center;
+}
+
+.rodape-col-3,
+.rodape-col-4 {
+    text-align: center;
+}
+
+.col-4 {
+    font-size: 24px;
+}
+
+.p-posters {
+    color: black;
+    font-weight: 500;
+
+}
+
+.ofertas {
+    background: radial-gradient(#7B68EE, #8A2BE2);
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.ver-produto .col-2{
+    margin: 20px 0;
+}
+
+.ver-produto .linha{
+    text-align: left;
+}
+
+.ver-produto h1{
+    font-size: 26px;
+    line-height: 26px;
+}

@@ -1,0 +1,26 @@
+.feedback-pergunta {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--cor-padrao);
+    font-weight: 400;
+    margin-bottom: -80px;
+}
+.feedback {
+    display: flex;
+    justify-content: center;
+}
+.corpo-categorias-feed {
+    display: flex;
+}
+.col-3 {
+    margin: 20px;
+    text-align: center;
+}
+.feedback-icone {
+    font-size: 40px;
+    color: var(--cor-padrao);
+}
+.rating ion-icon {
+    color: yellow;
+}
+
